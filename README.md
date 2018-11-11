@@ -4,10 +4,31 @@ Replicate some or all of Postgres commits using logical replication to AWS Kines
 
 ## Install
 
+go (>1.9) and dep is required.
+
 pg_kinesis is a command line tool. To install, run:
 
+1. clone repo to your $GOPATH/src folder
 ```sh
-go install github.com/nickelser/pg_kinesis
+mkdir -p $GOPATH/src 
+cd $GOPATH/src
+git clone https://github.com/repl-samuel/pg_kinesis.git
+```
+2. ensure dep
+```sh
+cd $GOPATH/src/pg_kinesis
+dep ensure
+```
+3. install to $GOPATH/bin
+```sh
+cd $GOPATH/src
+go install pg_kinesis
+```
+
+alternative, if you just want to hack it without respecting pinned dependencies
+```sh
+go get github.com/repl-samuel/pg_kinesis
+go install github.com/repl-samuel/pg_kinesis
 ```
 
 This will give you the `pg_kinesis` command, assuming your Go paths are setup correctly.
